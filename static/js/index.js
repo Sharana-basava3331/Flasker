@@ -1,0 +1,1 @@
+document.getElementById('demo').innerHTML="this inheited from javascript"
