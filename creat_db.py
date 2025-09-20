@@ -1,9 +1,6 @@
 import mysql.connector
 
-db=mysql.connector.connect(
-     host="localhost",       # or your server IP
-    user="root",            # your MySQL username
-    password="root" # your MySQL password
+check local
 )
 my_cursor=db.cursor()
 # my_cursor.execute("CREATE DATABASE users")
