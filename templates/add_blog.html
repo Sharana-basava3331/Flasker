@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Add Blog...</h1>
+
+<form method="post" class="mb-4">
+    {{form.hidden_tag() }}
+    <div>
+        {{ form.title.label(class="form-label") }}
+        {{ form.title(class="form-control") }}
+    </div>
+    <div>
+        {{ form.author.label(class="form-label") }}
+        {{ form.author(class="form-control")   }}
+    </div>
+    <div>
+        {{ form.slug.label(class="form-label") }}
+        {{ form.slug(class="form-control") }}
+    </div>
+    <div>
+        {{ form.text.label(class="form-label") }}
+        {{ form.text(class="form-control") }}
+    </div><br>
+        <div>
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+</form>
+{%  endblock %}

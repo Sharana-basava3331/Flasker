@@ -24,7 +24,18 @@
         {{ form.email.label(class="form-label") }}
         {{ form.email(class="form-control") }}
     </div>
-
+    <div class="mb-3">
+        {{ form.color.label(class="form-label") }}
+        {{ form.color(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.password_hash.label(class="form-label") }}
+        {{ form.password_hash(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.password_hash2.label(class="form-label") }}
+        {{ form.password_hash2(class="form-control") }}
+    </div>
     {{ form.submit(class="btn btn-primary") }}
 </form>
 
@@ -32,26 +43,33 @@
 
 <h2 class="mb-3">📋 All Users</h2>
 {% if all_users %}
-    <table class="table table-striped table-hover">
+<div  class="table-responsive">
+
+    <table class="table table-sm">
         <thead class="table-dark">
             <tr>
                 <th>ID</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Date Added</th>
+                <th>color</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
             {% for user in all_users %}
             <tr>
                 <td>{{ user.id }}</td>
-                <td>{{ user.name }}</td>
+                <td><a href="{{ url_for('update_id',id=user.id) }}">{{ user.name }}</a></td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.date.strftime("%Y-%m-%d %H:%M:%S") }}</td>
+                <td>{{ user.color }}  {{user.password_hash}}</td>
+                <td ><a href="{{url_for('delete',id=user.id)}}">Delete</a></td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
+</div>
 {% else %}
     <p class="text-muted">No users found. Add a new user above.</p>
 {% endif %}

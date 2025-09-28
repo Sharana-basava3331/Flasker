@@ -1,1 +1,2 @@
-document.getElementById('demo').innerHTML="this inheited from javascript"
+
+document.getElementById('demo').innerHTML = "This text is inherited from JavaScript";

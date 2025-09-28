@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+<br>
+{% for message in get_flashed_messages() %}
+    
+
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong></strong>{{ message }}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  
+</div>
+
+{% endfor %}
+
+{% if name %}
+        <!-- <h1>Hello {{ name|upper }} welcome to the page</h1>
+        <img src="{{url_for('static',filename='images/profile.jpg')}}" >
+        <h3 id="demo">this is the direct text</h3>
+         <script src="{{url_for('static',filename='js/index.js')}}"></script> -->
+
+{% else %}
+<h1>Update the User</h1>
+<form action="/update/{{name_update.id}}" method="POST" class="mb-4">
+    {{ form.hidden_tag() }}
+
+    <div class="mb-3">
+        {{ form.name.label(class="form-label") }}
+        {{ form.name(class="form-control",value=name_update.name) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form.email.label(class="form-label") }}
+        {{ form.email(class="form-control",value=name_update.email) }}
+    </div>
+    <div class="mb-3">
+        {{ form.color.label(class="form-label") }}
+        {{ form.color(class="form-control",value=name_update.color) }}
+    </div>
+
+    {{ form.submit(class="btn btn-success") }}
+    {{ form.cancel(class="btn btn-secondary")}}
+    <a href="{{url_for('delete',id=id)}}" class="btn btn-danger">Delete</a>
+    
+
+</form>
+{% endif %}
+{% endblock %}
